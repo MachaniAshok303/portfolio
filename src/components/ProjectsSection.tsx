@@ -19,7 +19,7 @@ const projects: Project[] = [
     category: 'RETAIL SUPPLY CHAIN / AUTOMATION',
     description:
       'End-to-end QA consulting and test automation for 7-Eleven supply chain management (MDMS) & 7-Now digital ordering platform. Engineered automated test scripts using Playwright and Cucumber BDD, executing comprehensive API and UI test suites.',
-    githubUrl: 'https://github.com/MachaniAshok303/MyProtfolio',
+    githubUrl: 'https://github.com/MachaniAshok303/portfolio',
     tech: [
       'Playwright',
       'Selenium',
@@ -42,7 +42,7 @@ const projects: Project[] = [
     category: 'BANKING & FINANCE / TEST AUTOMATION',
     description:
       'Specialized QA automation consulting for Barclays Bank mortgage applications (Further Advance, Remortgage, Initial Lending). Authored SBE features in Playwright & Cucumber BDD, along with web accessibility testing via NVDA and WCAG tools.',
-    githubUrl: 'https://github.com/MachaniAshok303/MyProtfolio',
+    githubUrl: 'https://github.com/MachaniAshok303/portfolio',
     tech: [
       'Playwright',
       'Cucumber BDD',
@@ -64,7 +64,7 @@ const projects: Project[] = [
     category: 'CORPORATE BANKING / CRM QUALITY',
     description:
       'QA lifecycle execution for Emirates National Bank of Dubai frontline & back-office CRM systems. Validated multi-layer service request workflows, customer segmentation modules, and backend transactions across Oracle SQL, Siebel CRM, and Finacle.',
-    githubUrl: 'https://github.com/MachaniAshok303/MyProtfolio',
+    githubUrl: 'https://github.com/MachaniAshok303/portfolio',
     tech: [
       'Oracle SQL',
       'Siebel CRM',
@@ -86,7 +86,7 @@ const projects: Project[] = [
     category: 'WEALTH MANAGEMENT / FINTECH QA',
     description:
       'Hands-free test automation and validation for Morgan Stanley Investment Product Technology. Developed automated scripts using Java, Selenium, and FAST Framework to verify financial advisor workflow approvals and MS SQL database integrity.',
-    githubUrl: 'https://github.com/MachaniAshok303/MyProtfolio',
+    githubUrl: 'https://github.com/MachaniAshok303/portfolio',
     tech: [
       'Java 8',
       'Selenium',
