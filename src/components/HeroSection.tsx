@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import watermarkImg from '../assets/watermark.png';
+import ashokSignature from '../assets/ashok-signature.png';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -73,7 +73,7 @@ export const HeroSection: React.FC = () => {
           playsInline
           className="h-screen w-auto max-w-none object-contain origin-right scale-95 md:scale-[0.98] lg:scale-100"
         >
-          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero_Ashok.mp4" type="video/mp4" />
         </video>
 
         {/* Seamless Soft Left Edge Blend */}
@@ -97,9 +97,9 @@ export const HeroSection: React.FC = () => {
               className="relative flex items-center justify-center"
             >
               <img
-                src={watermarkImg}
-                alt="Insignia"
-                className="w-28 h-28 lg:w-32 lg:h-32 object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.25)]"
+                src={ashokSignature}
+                alt="Ashok Signature Emblem"
+                className="w-36 h-auto max-h-28 lg:w-44 lg:max-h-36 object-contain drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] opacity-85"
               />
             </motion.div>
           </div>
@@ -118,7 +118,7 @@ export const HeroSection: React.FC = () => {
             className="text-xs sm:text-sm font-semibold tracking-[0.35em] uppercase text-[#EAD8C7] hover:opacity-75 transition-opacity"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            LOHITHA.
+            ASHOK KRISHNA.
           </a>
 
           {/* Navigation Links */}
@@ -171,19 +171,19 @@ export const HeroSection: React.FC = () => {
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[7.8rem] tracking-tight uppercase leading-[0.83]"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}
               >
-                {/* Line 1: I BUILD */}
+                {/* Line 1: AI-POWERED */}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">
-                  I BUILD
+                  AI-POWERED
                 </span>
 
-                {/* Line 2: DIGITAL */}
+                {/* Line 2: QA & AUTOMATION */}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">
-                  DIGITAL
+                  QA & AUTOMATION
                 </span>
 
-                {/* Line 3: EXPERIENCES */}
+                {/* Line 3: ENGINEER */}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#DFBE8A] via-[#9B7640] to-[#342410] drop-shadow-[0_10px_30px_rgba(155,118,64,0.4)]">
-                  EXPERIENCES
+                  ENGINEER
                 </span>
               </h1>
             </motion.div>
@@ -194,7 +194,7 @@ export const HeroSection: React.FC = () => {
                 className="text-[10px] sm:text-[11px] md:text-xs font-normal tracking-[0.28em] uppercase text-[#C4B29E]"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
-                FULL STACK DEVELOPER <span className="text-[#8C6D4F] mx-1">•</span> UI/UX DESIGNER <span className="text-[#8C6D4F] mx-1">•</span> DATA SCIENCE
+                PLAYWRIGHT & SELENIUM <span className="text-[#8C6D4F] mx-1">•</span> LLM & RAG EVALUATION <span className="text-[#8C6D4F] mx-1">•</span> ISTQB CERTIFIED
               </p>
             </motion.div>
 
@@ -205,9 +205,9 @@ export const HeroSection: React.FC = () => {
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               <p>
-                I turn bold ideas into seamless digital experiences.
+                Crafting robust, high-ROI automation suites & AI testing frameworks.
                 <br />
-                Where frontend meets powerful backend, and code transforms vision into impact.
+                Over 5+ years optimizing defect resolution across Supply Chain, Banking & Wealth Management.
               </p>
             </motion.div>
 
@@ -267,8 +267,8 @@ export const HeroSection: React.FC = () => {
               className="text-[9.5px] font-medium tracking-[0.24em] uppercase text-[#E0D3C5] space-y-1 mb-3"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              <p>CODE IS MY CRAFT.</p>
-              <p>IMPACT IS MY GOAL.</p>
+              <p>DRIVEN BY QUALITY.</p>
+              <p>DEFINED BY IMPACT.</p>
             </div>
 
             {/* 3. Gold Accent Line */}
@@ -282,7 +282,7 @@ export const HeroSection: React.FC = () => {
                 letterSpacing: '0.04em',
               }}
             >
-              Lohitha
+              Ashok
             </div>
           </motion.div>
         </div>

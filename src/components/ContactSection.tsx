@@ -63,11 +63,43 @@ export const ContactSection: React.FC = () => {
               </motion.div>
 
               <p
-                className="text-xs sm:text-[13px] font-light text-[#A8988B] leading-relaxed max-w-md"
+                className="text-xs sm:text-[13px] font-light text-[#A8988B] leading-relaxed max-w-md mb-8"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
-                Have an ambitious system to architect, an engineering opportunity, or a collaborative inquiry? Send a direct dispatch below.
+                Ready for high-ROI QA leadership, AI/LLM evaluation projects, or test automation consulting? Get in touch below.
               </p>
+
+              {/* Direct Contact Cards */}
+              <div className="space-y-4 text-xs font-mono text-[#D5CBC0]">
+                <div className="flex items-center space-x-3">
+                  <span className="text-[#D4AF37]">EMAIL:</span>
+                  <a href="mailto:ashokmachani95@gmail.com" className="hover:text-white transition-colors">
+                    ashokmachani95@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-[#D4AF37]">PHONE:</span>
+                  <a href="tel:+918919034948" className="hover:text-white transition-colors">
+                    +91 8919034948
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-[#D4AF37]">LOCATION:</span>
+                  <span>Hyderabad, India</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-[#D4AF37]">LINKEDIN:</span>
+                  <a href="https://www.linkedin.com/in/ashokmachani/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-[#8C6D4F]">
+                    linkedin.com/in/ashokmachani
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-[#D4AF37]">GITHUB:</span>
+                  <a href="https://github.com/MachaniAshok303" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-[#8C6D4F]">
+                    github.com/MachaniAshok303
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
