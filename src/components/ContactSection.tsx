@@ -95,8 +95,8 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-[#D4AF37]">GITHUB:</span>
-                  <a href="https://github.com/MachaniAshok303" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-[#8C6D4F]">
-                    github.com/MachaniAshok303
+                  <a href="https://github.com/MachaniAshok303/My_Protfolio" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-[#8C6D4F]">
+                    github.com/MachaniAshok303/My_Protfolio
                   </a>
                 </div>
               </div>
