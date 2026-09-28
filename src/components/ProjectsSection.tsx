@@ -5,6 +5,8 @@ import ScrollStack, { ScrollStackItem } from './ScrollStack';
 interface Project {
   number: string;
   title: string;
+  company: string;
+  client: string;
   category: string;
   description: string;
   githubUrl: string;
@@ -16,6 +18,8 @@ const projects: Project[] = [
   {
     number: '01',
     title: '7-Eleven Retail & Digital Products QA',
+    company: 'Planit',
+    client: '7-Eleven',
     category: 'RETAIL SUPPLY CHAIN / AUTOMATION',
     description:
       'End-to-end QA consulting and test automation for 7-Eleven supply chain management (MDMS) & 7-Now digital ordering platform. Engineered automated test scripts using Playwright and Cucumber BDD, executing comprehensive API and UI test suites.',
@@ -31,14 +35,16 @@ const projects: Project[] = [
       'Agile Scrum',
     ],
     metrics: [
+      { label: 'COMPANY', value: 'Planit' },
       { label: 'CLIENT', value: '7-Eleven' },
       { label: 'DOMAIN', value: 'Retail Supply Chain' },
-      { label: 'SUITE', value: 'Playwright + BDD' },
     ],
   },
   {
     number: '02',
     title: 'Barclays Bank Mortgage Automation',
+    company: 'Inventech Info Solutions',
+    client: 'Barclays Bank',
     category: 'BANKING & FINANCE / TEST AUTOMATION',
     description:
       'Specialized QA automation consulting for Barclays Bank mortgage applications (Further Advance, Remortgage, Initial Lending). Authored SBE features in Playwright & Cucumber BDD, along with web accessibility testing via NVDA and WCAG tools.',
@@ -53,14 +59,16 @@ const projects: Project[] = [
       'JIRA',
     ],
     metrics: [
+      { label: 'COMPANY', value: 'Inventech Info Solutions' },
       { label: 'CLIENT', value: 'Barclays Bank' },
-      { label: 'DOMAIN', value: 'Mortgage Lending' },
       { label: 'COMPLIANCE', value: 'WCAG Accessibility' },
     ],
   },
   {
     number: '03',
     title: 'Emirates NBD Corporate CRM Testing',
+    company: 'Synechron',
+    client: 'Emirates NBD',
     category: 'CORPORATE BANKING / CRM QUALITY',
     description:
       'QA lifecycle execution for Emirates National Bank of Dubai frontline & back-office CRM systems. Validated multi-layer service request workflows, customer segmentation modules, and backend transactions across Oracle SQL, Siebel CRM, and Finacle.',
@@ -75,14 +83,16 @@ const projects: Project[] = [
       'Confluence',
     ],
     metrics: [
+      { label: 'COMPANY', value: 'Synechron' },
       { label: 'CLIENT', value: 'Emirates NBD (Dubai)' },
-      { label: 'DOMAIN', value: 'Corporate CRM' },
       { label: 'INTEGRATIONS', value: 'Siebel & Finacle' },
     ],
   },
   {
     number: '04',
     title: 'Morgan Stanley Wealth Platform Automation',
+    company: 'Synechron',
+    client: 'Morgan Stanley',
     category: 'WEALTH MANAGEMENT / FINTECH QA',
     description:
       'Hands-free test automation and validation for Morgan Stanley Investment Product Technology. Developed automated scripts using Java, Selenium, and FAST Framework to verify financial advisor workflow approvals and MS SQL database integrity.',
@@ -97,9 +107,9 @@ const projects: Project[] = [
       'JIRA',
     ],
     metrics: [
+      { label: 'COMPANY', value: 'Synechron' },
       { label: 'CLIENT', value: 'Morgan Stanley [USA]' },
       { label: 'FRAMEWORK', value: 'FAST + Selenium' },
-      { label: 'DATABASE', value: 'MS SQL Server' },
     ],
   },
 ];
@@ -209,11 +219,25 @@ export const ProjectsSection: React.FC = () => {
                       </div>
 
                       <h3
-                        className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9]"
+                        className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-2 group-hover:text-[#F7E7C4] transition-colors uppercase leading-[0.9]"
                         style={{ fontFamily: "'Bebas Neue', sans-serif" }}
                       >
                         {project.title}
                       </h3>
+
+                      {/* Company, Client attribution */}
+                      <div
+                        className="flex items-center gap-1.5 mb-4"
+                        style={{ fontFamily: "'Montserrat', sans-serif" }}
+                      >
+                        <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-[#C9B99A]">
+                          {project.company}
+                        </span>
+                        <span className="text-[11px] text-[#D4AF37]">,</span>
+                        <span className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#8C6D4F]">
+                          {project.client}
+                        </span>
+                      </div>
 
                       <p
                         className="text-xs sm:text-sm md:text-[14px] font-light text-[#BDB0A4] leading-[1.85] tracking-wide mb-8 max-w-2xl"

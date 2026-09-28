@@ -1,12 +1,17 @@
 // src/components/ExperienceSection.tsx
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface RouteStop {
   id: string;
   year: string;
   title: string;
-  organization: string;
+  company: string;
+  companyLogo: string;
+  companyInitials: string;
+  client?: string;
+  clientLogo?: string;
+  clientInitials?: string;
   description: string;
 }
 
@@ -15,45 +20,125 @@ const journey: RouteStop[] = [
     id: '01',
     year: 'OCT 2025 - PRESENT',
     title: 'TEST AUTOMATION ENGINEER',
-    organization: 'PLANIT (CLIENT: 7-ELEVEN)',
+    company: 'PLANIT',
+    companyLogo: '/logos/planit.png',
+    companyInitials: 'P',
+    client: '7-ELEVEN',
+    clientLogo: '/logos/7eleven.svg',
+    clientInitials: '7E',
     description: 'Dedicated consultant for 7-Eleven retail supply chain management (MDMS) and 7-Now digital ordering. Leading AI testing, API verification, and Playwright UI automation.',
   },
   {
     id: '02',
     year: 'FEB 2024 - AUG 2025',
     title: 'QA AUTOMATION ENGINEER',
-    organization: 'INVENTECH INFO SOLUTIONS (CLIENT: BARCLAYS BANK)',
+    company: 'INVENTECH INFO SOLUTIONS',
+    companyLogo: '/logos/inventech.png',
+    companyInitials: 'IIS',
+    client: 'BARCLAYS BANK',
+    clientLogo: '/logos/barclays.webp',
+    clientInitials: 'BB',
     description: 'Provided specialized QA consulting & test execution for Barclays mortgage domain. Wrote SBE features in Playwright & Cucumber BDD, and performed WCAG accessibility audits with NVDA.',
   },
   {
     id: '03',
     year: 'MAY 2023 - NOV 2023',
     title: 'QA ASSOCIATE (ON-SHORE DUBAI)',
-    organization: 'SYNECHRON (CLIENT: EMIRATES NBD)',
+    company: 'SYNECHRON',
+    companyLogo: '/logos/synechron.png',
+    companyInitials: 'S',
+    client: 'EMIRATES NBD',
+    clientLogo: '/logos/enbd.png',
+    clientInitials: 'ENBD',
     description: 'Executed end-to-end QA testing for corporate banking CRM across frontline and back-office service requests, Oracle SQL, Siebel CRM, and Finacle platforms.',
   },
   {
     id: '04',
     year: 'APR 2022 - APR 2023',
     title: 'QA ASSOCIATE',
-    organization: 'SYNECHRON (CLIENT: MORGAN STANLEY)',
+    company: 'SYNECHRON',
+    companyLogo: '/logos/synechron.png',
+    companyInitials: 'S',
+    client: 'MORGAN STANLEY',
+    clientLogo: '/logos/morganstanley.png',
+    clientInitials: 'MS',
     description: 'Automated wealth management & alternative investment platform approval flows using Java 8, Selenium, FAST Framework, and MS SQL Server database scripting.',
   },
   {
     id: '05',
     year: 'SEP 2019 - SEP 2020',
     title: 'QA ENGINEER',
-    organization: 'QUEST GLOBAL',
+    company: 'QUEST GLOBAL',
+    companyLogo: '/logos/questglobal.jpg',
+    companyInitials: 'QG',
+    client: 'VOXY',
+    clientLogo: '/logos/voxy.jpg',
+    clientInitials: 'V',
     description: 'Conducted functional, system, and regression test case design, defect lifecycle management, traceability matrix updates, and team knowledge sharing.',
   },
   {
     id: '06',
     year: '2012 - 2016',
     title: 'B.TECH IN MECHANICAL ENGINEERING',
-    organization: 'SANTIRAM ENGINEERING COLLEGE',
+    company: 'SANTIRAM ENGINEERING COLLEGE',
+    companyLogo: '/logos/srec.jpg',
+    companyInitials: 'SEC',
     description: 'Graduated with a Bachelor of Technology degree, laying a strong analytical, problem-solving, and engineering foundation.',
   },
 ];
+
+/* Uniform logo badge with styled-initial fallback */
+const LogoBadge: React.FC<{
+  src: string;
+  initials: string;
+  alt: string;
+  accentColor?: string;
+}> = ({ src, initials, alt, accentColor = '#D4AF37' }) => {
+  const [failed, setFailed] = useState(!src);
+
+  return (
+    <div
+      className="relative flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+      style={{
+        width: '38px',
+        height: '38px',
+        borderRadius: '8px',
+        background: failed
+          ? `linear-gradient(135deg, ${accentColor}22, ${accentColor}08)`
+          : '#ffffff',
+        border: `1px solid ${failed ? accentColor + '40' : 'rgba(255,255,255,0.15)'}`,
+        boxShadow: `0 2px 8px rgba(0,0,0,0.25)`,
+        overflow: 'hidden',
+        padding: failed ? '0' : '3px',
+      }}
+    >
+      {!failed ? (
+        <img
+          src={src}
+          alt={alt}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            borderRadius: '3px',
+          }}
+          onError={() => setFailed(true)}
+          loading="lazy"
+        />
+      ) : (
+        <span
+          className="text-[8px] font-bold tracking-wider select-none"
+          style={{
+            color: accentColor,
+            fontFamily: "'Montserrat', sans-serif",
+          }}
+        >
+          {initials}
+        </span>
+      )}
+    </div>
+  );
+};
 
 export const ExperienceSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -159,18 +244,53 @@ export const ExperienceSection: React.FC = () => {
                   </div>
 
                   <h3
-                    className="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1 leading-none"
+                    className="text-3xl sm:text-4xl tracking-wide text-white group-hover:text-[#F7E7C4] transition-colors mb-1.5 leading-none"
                     style={{ fontFamily: "'Bebas Neue', sans-serif" }}
                   >
                     {stop.title}
                   </h3>
-                  
-                  <span 
-                    className="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#8C6D4F] mb-2"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}
-                  >
-                    {stop.organization}
-                  </span>
+
+                  {/* Company & Client Logos Row */}
+                  <div className="flex flex-wrap items-center gap-3 mb-2.5">
+                    {/* Company Badge */}
+                    <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm">
+                      <LogoBadge
+                        src={stop.companyLogo}
+                        initials={stop.companyInitials}
+                        alt={stop.company}
+                        accentColor="#D4AF37"
+                      />
+                      <span
+                        className="text-[10px] font-semibold tracking-[0.15em] uppercase text-[#C9B99A]"
+                        style={{ fontFamily: "'Montserrat', sans-serif" }}
+                      >
+                        {stop.company}
+                      </span>
+                    </div>
+
+                    {/* Client Badge */}
+                    {stop.client && stop.clientInitials && (
+                      <>
+                        <span className="text-[9px] text-[#8C6D4F] tracking-[0.2em] uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                          ›
+                        </span>
+                        <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[#D4AF37]/[0.06] border border-[#D4AF37]/[0.12] backdrop-blur-sm">
+                          <LogoBadge
+                            src={stop.clientLogo || ''}
+                            initials={stop.clientInitials}
+                            alt={stop.client}
+                            accentColor="#C99E5D"
+                          />
+                          <span
+                            className="text-[10px] font-semibold tracking-[0.15em] uppercase text-[#D4AF37]"
+                            style={{ fontFamily: "'Montserrat', sans-serif" }}
+                          >
+                            {stop.client}
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </div>
                   
                   <p 
                     className="text-xs sm:text-[13px] font-light text-[#A8988B] leading-[1.7] max-w-lg group-hover:text-[#D5CBC0] transition-colors"

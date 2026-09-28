@@ -294,6 +294,123 @@ export const AboutSection: React.FC = () => {
 
         </div>
 
+        {/* ================= CERTIFICATIONS SECTION ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-16 sm:mt-20 pt-10 border-t border-[#8C6D4F]/25"
+        >
+          <div className="flex items-center space-x-4 mb-8">
+            <span
+              className="text-[11px] font-medium tracking-[0.35em] uppercase text-[#D4AF37]"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              GLOBAL ACCREDITATIONS & CERTIFICATIONS
+            </span>
+            <div className="flex-1 h-[1px] bg-gradient-to-r from-[#D4AF37]/60 via-[#8C6D4F]/30 to-transparent" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Cert 1: ISQI C.A.E */}
+            <a
+              href="https://www.tesuqa.com/courses/isqi-certified-agile-essentials/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-5 p-5 sm:p-6 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_12px_35px_rgba(212,175,55,0.14)] cursor-pointer"
+            >
+              {/* Corner Pin */}
+              <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors duration-300" />
+              
+              {/* Logo Container */}
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-sm border border-[#8C6D4F]/40 bg-white p-1.5 flex items-center justify-center group-hover:border-[#D4AF37]/80 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all duration-300">
+                <img
+                  src="/logos/isqi.png"
+                  alt="ISQI Certified Agile Essentials"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-all duration-300"
+                />
+              </div>
+
+              {/* Details */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#D4AF37] px-2 py-0.5 border border-[#D4AF37]/30 bg-[#1A1510]">
+                    ISQI C.A.E
+                  </span>
+                  <span className="text-[9.5px] font-mono tracking-[0.15em] text-[#A8988B]">
+                    VERIFIED CREDENTIAL
+                  </span>
+                </div>
+                <h4
+                  className="text-xl sm:text-2xl font-normal text-white group-hover:text-[#F7E7C4] transition-colors leading-tight"
+                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                >
+                  ISQI Certified Agile Essentials
+                </h4>
+                <p className="text-xs text-[#A8988B] mt-1 line-clamp-1 font-light" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  iSQI® International Software Quality Institute
+                </p>
+              </div>
+
+              {/* Arrow Link Icon */}
+              <div className="text-[#8C6D4F] group-hover:text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
+            </a>
+
+            {/* Cert 2: ISTQB CTFL */}
+            <a
+              href="https://brightest.org/en/certifications/ISTQB-r-Certified-Tester-Foundation-Level/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-5 p-5 sm:p-6 rounded-sm border border-[#8C6D4F]/35 bg-[#100D0B]/85 backdrop-blur-xl transition-all duration-500 hover:border-[#D4AF37]/80 hover:shadow-[0_12px_35px_rgba(212,175,55,0.14)] cursor-pointer"
+            >
+              {/* Corner Pin */}
+              <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors duration-300" />
+              
+              {/* Logo Container */}
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-sm border border-[#8C6D4F]/40 bg-white p-1.5 flex items-center justify-center group-hover:border-[#D4AF37]/80 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all duration-300">
+                <img
+                  src="/logos/istqb_ctfl.png"
+                  alt="ISTQB Certified Tester Foundation Level"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-all duration-300"
+                />
+              </div>
+
+              {/* Details */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-[9.5px] font-mono tracking-[0.2em] uppercase text-[#D4AF37] px-2 py-0.5 border border-[#D4AF37]/30 bg-[#1A1510]">
+                    ISTQB® CTFL
+                  </span>
+                  <span className="text-[9.5px] font-mono tracking-[0.15em] text-[#A8988B]">
+                    VERIFIED CREDENTIAL
+                  </span>
+                </div>
+                <h4
+                  className="text-xl sm:text-2xl font-normal text-white group-hover:text-[#F7E7C4] transition-colors leading-tight"
+                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                >
+                  ISTQB® Certified Tester Foundation Level
+                </h4>
+                <p className="text-xs text-[#A8988B] mt-1 line-clamp-1 font-light" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  ISTQB® / Brightest Certification Board
+                </p>
+              </div>
+
+              {/* Arrow Link Icon */}
+              <div className="text-[#8C6D4F] group-hover:text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

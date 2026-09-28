@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emirates NBD | Financial Services and Online Banking in Dubai and UAE</title>
+
+    <style>
+        /* Reset and Base Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            background-color: #f5f7fa;
+            color: #072447;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #072447;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            flex-direction: row;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Logo */
+        .header-logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding-left: 15px;
+        }
+
+        .header-logo {
+            height: 25px;
+            width: auto;
+            display: block;
+        }
+
+        @media (min-width: 1200.98px) {
+            header {
+                height: 35px;
+            }
+
+            header .container {
+                padding-inline: 0;
+            }
+
+            footer .container,
+            header .container {
+                max-width: 1332px;
+            }
+        }
+
+        /* Online Banking Dropdown */
+        header .container>div {
+            position: relative;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .online-banking-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 16px 0 10px;
+            background-color: #2765ff;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 600;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .online-banking-btn::after {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-bottom: 3px solid #ffffff;
+            border-right: 3px solid #ffffff;
+            border-radius: 20%;
+            transform: rotate(45deg) translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+
+
+        header .container>div.dropdown-active .online-banking-btn::after {
+            transform: rotate(-135deg);
+        }
+
+        /* Enable hover only on non-touch devices */
+        body:not(.touch-device) .container>div:hover .online-banking-btn::after {
+            transform: rotate(-135deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu__list {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 280px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .container>div.dropdown-active .dropdown-menu__list {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Enable hover only on non-touch devices */
+        body:not(.touch-device) .container>div:hover .dropdown-menu__list {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu__list::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 32px;
+            width: 12px;
+            height: 12px;
+            background-color: #ffffff;
+            transform: rotate(45deg);
+        }
+
+        .dropdown-menu__list li {
+            margin: 0;
+        }
+
+        .dropdown-menu__list li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: .875rem 1rem;
+            text-decoration: none;
+            color: #072447;
+            font-size: 14px;
+            font-weight: 400;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid hsla(0, 0%, 83.1%, .3);
+        }
+
+        .dropdown-menu__list li:last-child a {
+            border-bottom: none;
+        }
+
+        .dropdown-menu__list li a:hover {
+            background-color: #f1f5f9;
+        }
+
+        .dropdown-menu__icon-img {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .dropdown-menu__icon-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .dropdown-menu__list li a span {
+            flex: 1;
+            white-space: nowrap;
+        }
+
+        /* Header Responsive */
+        @media (max-width: 768px) {
+
+            .header-logo {
+                height: 28px;
+            }
+
+            .online-banking-btn {
+                padding: 0 16px;
+                font-size: 12px;
+            }
+
+            .dropdown-menu__list {
+                min-width: 260px;
+                right: 16px;
+            }
+
+            .dropdown-menu__list li a {
+                font-size: 13px;
+                padding: 10px 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+                min-height: 45px;
+            }
+
+            .header-logo {
+                height: 24px;
+            }
+
+            .online-banking-btn {
+                padding: 0 12px;
+                font-size: 11px;
+                padding: 0;
+            }
+
+            .dropdown-menu__list {
+                min-width: 240px;
+                right: 12px;
+            }
+        }
+
+        /* Container */
+        .error-container {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: stretch;
+        }
+
+        .error-content {
+            display: contents;
+        }
+
+        /* Left Side - Error Message */
+        .error-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            text-align: center;
+            justify-content: flex-start;
+            padding: 60px 40px;
+            background-color: #ffffff;
+        }
+
+        .error-title {
+            font-size: 24px;
+            font-weight: 400;
+            color: #072447;
+            margin-bottom: 8px;
+        }
+
+        .error-404-img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+
+            display: block;
+        }
+
+        .error-message {
+            font-size: 14px;
+            color: #072447;
+            line-height: 1.6;
+            max-width: 480px;
+        }
+
+        /* Reference ID */
+        .error-ref {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            max-width: fit-content;
+        }
+
+        .ref-label {
+            font-size: 14px;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .ref-value {
+            font-size: 14px;
+            color: #072447;
+            /* font-family: 'Courier New', monospace; */
+            font-weight: 600;
+        }
+
+        .ref-copy {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+
+        .ref-copy:hover {
+            color: #072447;
+        }
+
+        .ref-copy.copied {
+            color: #10b981;
+        }
+
+        /* Homepage Button */
+        .btn-homepage {
+            background-color: #072447;
+            color: #ffffff;
+            border: none;
+            padding: 14px 40px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            max-width: fit-content;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            text-decoration: none;
+        }
+
+        .btn-homepage:hover {
+            background-color: #2c3e5c;
+            transform: translateY(-2px);
+        }
+
+        .btn-homepage:active {
+            transform: translateY(0);
+        }
+
+        /* Right Side - Helpful Links */
+        .error-right {
+            background-color: #EEF2F8;
+            padding: 60px 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .helpful-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .helpful-subtitle {
+            font-size: 14px;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .helpful-title {
+            font-size: 24px;
+            font-weight: 500;
+            color: #072447;
+            line-height: 1.3;
+            margin-bottom: 0;
+        }
+
+        .helpful-description {
+            font-size: 12px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        /* Link Cards */
+        .helpful-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 16px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .link-card:hover {
+            border-color: #cbd5e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .link-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+            padding-right: 12px;
+        }
+
+        .link-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #072447;
+            line-height: 1.3;
+        }
+
+        .link-card-description {
+            font-size: 12px;
+            color: #718096;
+            line-height: 1.5;
+        }
+
+        .link-card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: #f1f5f9;
+            border-radius: 9999px;
+            color: #2c3e5c;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover .link-card-icon {
+            background-color: #072447;
+            color: #ffffff;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .contact-title {
+            font-size: 24px;
+            font-weight: 500;
+            color: #072447;
+            margin-bottom: 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background-color: #D7DCE2;
+            border-radius: 999px;
+            color: #072447;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #072447;
+        }
+
+        .contact-value {
+            font-size: 12px;
+            color: #072447;
+            line-height: 1.5;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            display: block;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: #2765ff;
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #ffffff;
+            padding: 24px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+
+        footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .footer-text {
+            flex: 1;
+        }
+
+        .footer-text span {
+            font-size: 11px;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        .footer-logo-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .footer-logo {
+            height: 56px;
+            width: auto;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .error-left {
+                padding: 50px 30px;
+            }
+
+            .error-right {
+                padding: 50px 40px;
+            }
+
+            .footer-logo-wrapper {
+                flex: 1;
+            }
+
+            .footer-logo {
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-container {
+                grid-template-columns: 1fr;
+            }
+
+            .error-left {
+                padding: 40px 20px;
+            }
+
+            .error-title {
+                font-size: 22px;
+            }
+
+            .error-404-img {
+                max-width: 300px;
+            }
+
+            .error-ref {
+                width: 100%;
+            }
+
+            .btn-homepage {
+                width: 100%;
+            }
+
+            .error-right {
+                padding: 40px 24px;
+            }
+
+            .helpful-title {
+                font-size: 24px;
+            }
+
+            .helpful-links {
+                grid-template-columns: 1fr;
+            }
+
+            .link-card {
+                padding: 16px;
+            }
+
+            .link-card-icon {
+                width: 44px;
+                height: 44px;
+            }
+
+            .contact-title {
+                font-size: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 20px 0;
+            }
+
+            footer .container {
+                text-align: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .footer-text span {
+                font-size: 14px;
+                color: #000;
+
+            }
+
+            .footer-logo-wrapper {
+                align-self: center;
+                justify-content: center;
+            }
+
+            .footer-logo {
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: 70px;
+            }
+
+            .header-logo-link {
+                padding: 0;
+            }
+
+            .header-logo-link img {
+                width: auto;
+                height: 2.25rem;
+            }
+
+            .online-banking-btn {
+                font-size: 0;
+                gap: 0;
+                background-color: transparent;
+            }
+
+            .online-banking-btn svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .online-banking-btn:after {
+                display: none;
+            }
+
+            .error-404-img {
+                max-width: 250px;
+            }
+
+            .helpful-title {
+                font-size: 20px;
+            }
+
+            .link-card-title {
+                font-size: 16px;
+            }
+
+            .link-card-description {
+                font-size: 13px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="https://www.emiratesnbd.com/en" class="header-logo-link">
+                <img src="https://cdn.emiratesnbd.com/404/enbd-logo.png" alt="Emirates NBD Logo" class="header-logo">
+            </a>
+            <div>
+                <span class="online-banking-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 11V8.5a4 4 0 0 1 8 0v2.5" />
+                        <circle cx="12" cy="16" r="6" />
+                        <circle cx="12" cy="15.5" r="1" fill="currentColor" opacity="0.7" />
+                        <line x1="12" y1="16.5" x2="12" y2="18.5" stroke-width="1" opacity="0.7" />
+                    </svg>
+                    Online Banking</span>
+                <ul class="dropdown-menu__list">
+                    <li>
+                        <a href="https://online.emiratesnbd.com" data-ctatext="enbd x online banking"
+                            data-ctaregion="Top Nav" data-ctacategory="Navigation" target="_blank"
+                            title="fb5ee42c109b4ee7ab02137890653169" data-ctalink="https://online.emiratesnbd.com"
+                            data-event="ctaClick" data-ctatype="link" rel="noopener noreferrer">
+                            <picture class="dropdown-menu__icon-img" data-cmp-info="10">
+                                <img alt="ENBD X Online Banking"
+                                    src="https://www.emiratesnbd.com/-/media/enbd/icons/common/enbd-icon.svg?la=en&amp;hash=EDD54CE0ED049A99E8B646D06EE3F19C"
+                                    class="lazy-image" data-cmp-info="10">
+                            </picture>
+                            <span>ENBD X Online Banking </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://businessonline.emiratesnbd.com/" data-ctatext="businessonline"
+                            data-ctaregion="Top Nav" data-ctacategory="Navigation" target="_blank"
+                            title="bcc0483a24424cc2a133d88688b73fb0"
+                            data-ctalink="https://businessonline.emiratesnbd.com/" data-event="ctaClick"
+                            data-ctatype="link" rel="noopener noreferrer">
+                            <picture class="dropdown-menu__icon-img" data-cmp-info="10">
+                                <img alt="businessONLINE"
+                                    src="https://www.emiratesnbd.com/-/media/enbd/images/header/icons/icon-business-online.svg?la=en&amp;hash=59AF9525E32F0CE7BEF4DDE22631015A"
+                                    class="lazy-image" data-cmp-info="10">
+                            </picture>
+                            <span>businessONLINE</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://signonline.emiratesnbd.com/" data-ctatext="signonline" data-ctaregion="Top Nav"
+                            data-ctacategory="Navigation" target="_blank" title="fde0ad9ec6b74b0399445c8456519762"
+                            data-ctalink="https://signonline.emiratesnbd.com/" data-event="ctaClick" data-ctatype="link"
+                            rel="noopener noreferrer">
+                            <picture class="dropdown-menu__icon-img" data-cmp-info="10">
+                                <img alt="signONLINE"
+                                    src="https://www.emiratesnbd.com/-/media/enbd/icons/common/signonline.svg?la=en&amp;hash=97FE8FA2EDB59BC9B57BB6A515DA3936"
+                                    class="lazy-image" data-cmp-info="10">
+                            </picture>
+                            <span>signONLINE</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.emiratesnbdsecurities.com/en-sec/" data-ctatext="brokerage"
+                            data-ctaregion="Top Nav" data-ctacategory="Navigation" target="_blank"
+                            title="481ff8db5ffa4c878f7be7cff93e0061"
+                            data-ctalink="http://www.emiratesnbdsecurities.com/en-sec/" data-event="ctaClick"
+                            data-ctatype="link" rel="noopener noreferrer">
+                            <picture class="dropdown-menu__icon-img" data-cmp-info="10">
+                                <img alt="Brokerage"
+                                    src="https://www.emiratesnbd.com/-/media/enbd/images/header/icons/icon-brokerage.svg?la=en&amp;hash=3B3BEB3F2DDE8A1860FABF7BABD33DB0"
+                                    class="lazy-image" data-cmp-info="10">
+                            </picture>
+                            <span>Brokerage</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-left">
+                <h1 class="error-title">Something went wrong</h1>
+
+                <img src="https://cdn.emiratesnbd.com/404/404-img.png" alt="404 Error" class="error-404-img">
+
+
+                <p class="error-message">Sorry for the inconvenience, there is a problem processing your request.</p>
+
+                <div class="error-ref">
+                    <span class="ref-label">Ref ID</span>
+                    <span class="ref-value" id="refId">4069297809057918374</span>
+                    <button class="ref-copy" onclick="copyRefId()" aria-label="Copy reference ID">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path
+                                d="M13.5 2.5H5.5C4.67 2.5 4 3.17 4 4V14H5.5V4H13.5V2.5ZM16 5.5H8C7.17 5.5 6.5 6.17 6.5 7V16C6.5 16.83 7.17 17.5 8 17.5H16C16.83 17.5 17.5 16.83 17.5 16V7C17.5 6.17 16.83 5.5 16 5.5ZM16 16H8V7H16V16Z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+
+                <a href="https://www.emiratesnbd.com/en" class="btn-homepage">Go back to homepage</a>
+            </div>
+
+            <div class="error-right">
+                <div class="helpful-section">
+                    <p class="helpful-subtitle">Already a customer?</p>
+                    <h2 class="helpful-title">Some useful links to help you</h2>
+                    <p class="helpful-description">Emirates NBD's Phone Banking Service offers you the flexibility and
+                        convenience of conducting your banking transactions and inquiries over the phone 24-hours a day,
+                        7 days a week.</p>
+
+                    <div class="helpful-links">
+                        <a href="https://www.emiratesnbd.com/en/cards/credit-cards" class="link-card">
+                            <div class="link-card-content">
+                                <h3 class="link-card-title">Credit Cards</h3>
+                                <p class="link-card-description">Explore credit cards with rewards, lifestyle benefits, travel privileges, and flexible payment options designed for everyday spending.</p>
+                            </div>
+                            <div class="link-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor"
+                                        stroke-width="1.5" />
+                                    <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.5" />
+                                    <line x1="6" y1="14" x2="10" y2="14" stroke="currentColor" stroke-width="1.5" />
+                                </svg>
+                            </div>
+                        </a>
+
+                        <a href="https://www.emiratesnbd.com/en/loans" class="link-card">
+                            <div class="link-card-content">
+                                <h3 class="link-card-title">Loans</h3>
+                                <p class="link-card-description">Explore from a wide range that suits your needs at an affordable rate</p>
+                            </div>
+                            <div class="link-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M12 8V12L15 14" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </a>
+
+                        <a href="https://www.emiratesnbd.com/en/accounts" class="link-card">
+                            <div class="link-card-content">
+                                <h3 class="link-card-title">Accounts</h3>
+                                <p class="link-card-description">Start your banking journey in the UAE with products and services tailored to your financial needs</p>
+                            </div>
+                            <div class="link-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M6 20C6 16.6863 8.68629 14 12 14C15.3137 14 18 16.6863 18 20"
+                                        stroke="currentColor" stroke-width="1.5" />
+                                </svg>
+                            </div>
+                        </a>
+
+                        <a href="https://www.emiratesnbd.com/en/wealth"
+                            class="link-card">
+                            <div class="link-card-content">
+                                <h3 class="link-card-title">Wealth Advisory Services</h3>
+                                <p class="link-card-description">Personalised Wealth Management solutions to suit your financial needs</p>
+                            </div>
+                            <div class="link-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 12H21M21 12L16 7M21 12L16 17" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="contact-section">
+                        <h2 class="contact-title">Contact Details</h2>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M20 15.5C18.8 15.5 17.6 15.3 16.4 14.9C16.3 14.9 16.2 14.9 16.1 14.9C15.8 14.9 15.5 15 15.3 15.2L13.2 17.3C10.4 15.9 8.1 13.6 6.7 10.8L8.8 8.7C9.1 8.4 9.2 8 9.1 7.6C8.7 6.4 8.5 5.2 8.5 4C8.5 3.4 8.1 3 7.5 3H4C3.4 3 3 3.4 3 4C3 13.4 10.6 21 20 21C20.6 21 21 20.6 21 20V16.5C21 15.9 20.6 15.5 20 15.5Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                </div>
+                                <div class="contact-info">
+                                    <h3 class="contact-label">Call Center</h3>
+                                    <a href="tel:+971600540000" class="contact-value contact-link">600 54 0000</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                        <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                </div>
+                                <div class="contact-info">
+                                    <h3 class="contact-label">Email us at</h3>
+                                    <a href="/cdn-cgi/l/email-protection#e98a9c9a9d86848c9b8a889b8ca98c84809b889d8c9a878b8dc78a8684" class="contact-value contact-link"><span class="__cf_email__" data-cfemail="ddbea8aea9b2b0b8afbebcafb89db8b0b4afbca9b8aeb3bfb9f3beb2b0">[email&#160;protected]</span></a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" />
+                                        <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" />
+                                    </svg>
+                                </div>
+                                <div class="contact-info">
+                                    <h3 class="contact-label">SWIFT Address</h3>
+                                    <p class="contact-value">EBILAEAD</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-text">
+                <span>Emirates NBD Bank (P.J.S.C.) is licensed by the Central Bank of
+                    the UAE, Baniyas Road, Deira, P.O. Box: 777, Dubai, UAE</span>
+            </div>
+            <div class="footer-logo-wrapper">
+                <img src="https://cdn.emiratesnbd.com/404/footer_logo.png" alt="Footer Settings" class="footer-logo">
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function copyRefId() {
+            const refId = document.getElementById('refId').textContent;
+            navigator.clipboard.writeText(refId).then(() => {
+                const btn = document.querySelector('.ref-copy');
+                btn.classList.add('copied');
+                setTimeout(() => btn.classList.remove('copied'), 2000);
+            });
+        }
+        // Dropdown menu functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownContainer = document.querySelector('.container > div');
+            const dropdownButton = document.querySelector('.online-banking-btn');
+            const dropdownMenu = document.querySelector('.dropdown-menu__list');
+
+            // Detect if device is touch-capable
+            function isTouchDevice() {
+                return (('ontouchstart' in window) ||
+                    (navigator.maxTouchPoints > 0) ||
+                    (navigator.msMaxTouchPoints > 0));
+            }
+
+            // Add touch class to body if touch device
+            if (isTouchDevice()) {
+                document.body.classList.add('touch-device');
+            }
+
+            // Toggle dropdown on button click (only for touch devices)
+            dropdownButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Only toggle (close on second click) for touch devices
+                if (isTouchDevice()) {
+                    dropdownContainer.classList.toggle('dropdown-active');
+                } else {
+                    // For desktop, just open (hover handles closing)
+                    dropdownContainer.classList.add('dropdown-active');
+                }
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!dropdownContainer.contains(e.target)) {
+                    dropdownContainer.classList.remove('dropdown-active');
+                }
+            });
+
+            // Close dropdown when clicking a link inside the menu
+            const dropdownLinks = dropdownMenu.querySelectorAll('a');
+            dropdownLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    dropdownContainer.classList.remove('dropdown-active');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
